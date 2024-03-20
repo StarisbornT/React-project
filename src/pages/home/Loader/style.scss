@@ -1,0 +1,52 @@
+@use "../../../assets/styles/mixin.scss" as *;
+.loader {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+
+  &__icon {
+    animation: rotate 2s infinite linear;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+
+    svg {
+      height: 100px;
+      width: 100px;
+      fill: var(--primary);
+
+      @include mq(767px) {
+        height: 150px;
+        width: 150px;
+      }
+    }
+  }
+
+  &__message {
+    color: var(--primary);
+    position: absolute;
+    font-size: 0.9rem;
+    @include mq(767px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
